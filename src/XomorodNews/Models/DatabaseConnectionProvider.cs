@@ -17,6 +17,11 @@ namespace RssFeedsCloud.Model
         static DatabaseConnectionProvider()
         {
             var data = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "Web.config");
+            var start = data.IndexOf("<connectionStrings>", StringComparison.Ordinal);
+            var end = data.IndexOf("</connectionStrings>", StringComparison.Ordinal);
+            data = data.Substring(start, end - start + 20);
+
+
             ConnectionManager.LoadFromXml(data);
             
             ConnectionManager.SetToDefaultConnection("Xomorod");
