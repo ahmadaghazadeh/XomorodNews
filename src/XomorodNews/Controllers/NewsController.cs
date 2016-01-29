@@ -4,8 +4,8 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using AdoManager;
 using XomorodNews.Core;
-using DB = XomorodNews.Models.DatabaseConnectionProvider;
 
 namespace XomorodNews.Controllers
 {
@@ -86,21 +86,24 @@ namespace XomorodNews.Controllers
         //    return Ok(new { category, lang });
         //}
 
-        //// GET domain/api/news/Category
-        //[Route("api/News/Categories")]
-        //public IHttpActionResult GetCategories()
-        //{
-        //    var categories = DB.Connection.RssCategories.Where(x => x.IsActive).Select(x => new { x.CategoryID, x.Name, x.PersianName, x.Order, x.IsActive });
+        // GET domain/api/news/Category
+        [Route("api/News/Categories")]
+        public IHttpActionResult GetCategories()
+        {
+            var categories = DataAccessObject.GetFrom("RssCategories", Condition.Factory("IsActive", Operators.Equal, true));
+            //var categories = DB.Connection.RssCategories.Where(x => x.IsActive).Select(x => new { x.CategoryID, x.Name, x.PersianName, x.Order, x.IsActive });
 
-        //    return Ok(categories);
-        //}
+            return Ok(categories);
+        }
 
-
+        // GET domain/api/news/dynamics
+       //[Route("api/News/Dynamics/{params}")]
         public IHttpActionResult Get()
         {
             var queryParams = this.Request.GetQueryStrings();
 
-            var local = queryParams["lang"] ?? "en";
+            var id = queryParams["id"];
+            var local = queryParams["local"] ?? "en";
             var category = queryParams["category"] ?? "all";
 
             return Ok("");

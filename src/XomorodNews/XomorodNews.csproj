@@ -107,6 +107,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Core\ExtensionsHelper.cs" />
@@ -124,7 +125,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\DatabaseConnectionProvider.cs" />
     <Compile Include="Models\Hover.cs" />
     <Compile Include="pages\errors\404.aspx.cs">
       <DependentUpon>404.aspx</DependentUpon>

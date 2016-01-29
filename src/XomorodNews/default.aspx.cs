@@ -5,7 +5,6 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using RssFeedsCloud.Model;
-using XomorodNews.Models;
 
 namespace XomorodNews
 {
@@ -13,7 +12,7 @@ namespace XomorodNews
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            DatabaseConnectionProvider.Connection.Open();
+            
         }
     }
 }
