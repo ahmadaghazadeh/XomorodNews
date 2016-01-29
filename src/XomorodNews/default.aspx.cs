@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using RssFeedsCloud.Model;
+using XomorodNews.Models;
 
 namespace XomorodNews
 {

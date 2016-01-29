@@ -5,7 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using XomorodNews.Core;
-using DB = RssFeedsCloud.Model.DatabaseConnectionProvider;
+using DB = XomorodNews.Models.DatabaseConnectionProvider;
 
 namespace XomorodNews.Controllers
 {

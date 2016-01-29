@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using AdoManager;
 
-namespace RssFeedsCloud.Model
+namespace XomorodNews.Models
 {
     public static class DatabaseConnectionProvider
     {
@@ -17,10 +13,6 @@ namespace RssFeedsCloud.Model
         static DatabaseConnectionProvider()
         {
             var data = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "Web.config");
-            var start = data.IndexOf("<connectionStrings>", StringComparison.Ordinal);
-            var end = data.IndexOf("</connectionStrings>", StringComparison.Ordinal);
-            data = data.Substring(start, end - start + 20);
-
 
             ConnectionManager.LoadFromXml(data);
             
